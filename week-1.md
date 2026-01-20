@@ -1,0 +1,90 @@
+# Week One Tutorial: Software Setup
+
+This week, we're setting up the essential software that we'll be using for the rest of the semester. Here's what we'll be installing / using today:
+
+- **Visual Studio Code** is a commonly used IDE, or integrated development environment. IDEs are basically software for software development. They provide a way for people to edit, interpret, compile, and debug code.
+
+- **Git** is a version control system that can be installed on any server. It's primarily used through command line.
+
+- **GitHub** is a web-based platform that hosts Git repositories and provides collaboration features for managing code.
+
+- **Command line**, AKA **terminal** or **shell** or **console**, is a text-based interface for giving computers commands. Text-based interfaces preceded graphical user interfaces (GUIs) as the original way for people to interact with computers. We still use it today because the command line remains a quick and straightforward way to get certain tasks done.
+
+## Tutorial
+
+### 1. Installing VS Code
+
+1. Go to [https://code.visualstudio.com/download](https://code.visualstudio.com/download).
+
+2. Download the version for your OS (operating system).
+
+3. Find the `.exe` file in downloads and proceed with the installation process.
+
+4. Launch VS Code.
+
+### 2. Installing VS Code extensions
+
+1. In VS Code, open the extensions page by clicking the extensions button on the activity bar (lefthand menu).
+
+2. Install the **Live Server** extension. Live Server is a local development server. Basically, it lets you preview your work in the web browser and automatically refreshes the page whenever you save changes, so you don't have to reload each time.
+
+3. Install the **Prettier** extension. Prettier is a code formatter that parses your code as you type and updates the styling/formatting to make it more human-reader-friendly. You'll see how helpful this is when you start writing in VS Code.
+
+### 3. Creating a README file
+
+A README file is a standard text file that introduces and explains a project. Consider it the "metadata" of your source code.
+
+1. In VS Code, create a new file and save it in a local directory (AKA folder). You can name the directory something like "GitHub README". Name the file "README.md". The `.md` extension stands for "markdown"
+
+2. Write a brief self-introduction in the README file.
+
+### 4. Creating a GitHub account and repository
+
+1. Go to [github.com](https://github.com/) and create an account. Select the option to create a student account, if possible.
+
+2. Set up a new GitHub respository by clicking on the `+` icon in the top right and selecting "New repository" from the dropdown.
+
+3. Give your repository the same name as your GitHub account username.
+
+4. Make sure the visibility is set to "public". Leave all other settings unchanged.
+
+5. Pause at the next page that shows you the quick setup instructions.
+
+### 5. Linking local directory to GitHub repository
+
+1. Back in VS Code, open a new Terminal window by going to "Terminal" -> "New Terminal".
+
+2. Make sure you're located in the right directory. Your location will be written in the line above the line where you type your prompt. You can type `pwd` (stands for "print working directory") and hit enter to check your location if you're unsure.
+
+3. Once you've confirmed you're in the directory with your README file, type and enter `git init`. This creates an invisible `.git` folder that tracks all changes in your directory.
+
+4. Type and enter `git add .` to add all your changes thus far. Alternatively, you can enter `git add README.md`, which would push just your README file.
+
+5. Write a "commit" by typing `git commit -m` followed by a brief message in quotations describing what changes you made. For example:
+
+```
+git commit -m "first commit with README"
+```
+
+6. Connect your local repository to your GitHub (or remote) repository by entering `git remote add origin` followed by the URL from the quick setup page on GitHub. For example:
+
+```
+git remote add origin git@github.com:sukjo/test.git
+```
+
+7. "Push" your README to GitHub by entering the below lines, one at a time. Follow the instructions if you're asked to log into your GitHub account.
+
+```
+git branch -M main
+git push -u origin main
+```
+
+8. Check your changes have been pushed successfully by going to the GitHub repository page in your web browser and refreshing the page. You should see your README file listed. [^1]
+
+9. Since you added your README to your GitHub account's special profile repository, your README should display directly on your GitHub profile.
+
+GitHub repositories will be your main method of submitting work in this class. From here on, when you submit an assignment, you'll have to link your project to a GitHub repo and push your changes.
+
+---
+
+[^1] If you're working on macOS, you might also see a file called `.DS_Store`. This is just a file generated by macOS that contains custom attributes of the containing folder.
