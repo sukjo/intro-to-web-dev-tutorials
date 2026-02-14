@@ -163,7 +163,7 @@ h3 + a {
 }
 ```
 
-The subsequent sibling combinator `~` grabs all instances of the second element that come after the first element (whether immediately or separated by a few siblings), and that share the same parent as the first element.
+The subsequent sibling combinator `~` grabs all instances of the second element that comes after the first element (whether immediately or separated by a few siblings), and that share the same parent as the first element.
 
 ```
 h3 ~ a {
