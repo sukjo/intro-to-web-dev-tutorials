@@ -65,8 +65,11 @@ In this case, the `href` (hypertext reference) attribute of the anchor tag tells
 
 Image tags always require `src` (source) and `alt` (alt text) attributes. `src` represents the location of the image file at hand. `alt` provides a description of the image for screen readers and also for seeing viewers, in case the image file does not load properly.
 
-```
-<img alt="four sea angels floating in a group" src="https://upload.wikimedia.org/wikipedia/commons/4/46/Campagne_IBTS_2010_-_Mollusques_anges_de_mer_%28Clione_limacina%29_%28Ifremer_00576-68796_-_27515%29.jpg" />
+```html
+<img
+  alt="four sea angels floating in a group"
+  src="https://upload.wikimedia.org/wikipedia/commons/4/46/Campagne_IBTS_2010_-_Mollusques_anges_de_mer_%28Clione_limacina%29_%28Ifremer_00576-68796_-_27515%29.jpg"
+/>
 ```
 
 The source links for `<a>` and `<img>` can be a web URL or a local file. Web URLs are complete internet addresses that begin with `http://` or `https://`, as shown above.
@@ -74,9 +77,11 @@ The source links for `<a>` and `<img>` can be a web URL or a local file. Web URL
 To reference local files, you can use a **file path**. File paths come in two varieties:
 
 1. **Absolute file paths** - the complete "address" of the file from the root directory[^1]. These start with a forward slash `/`.
-   ```
-   <img alt="lone tree in a field"
-   src="/Users/myUsername/Documents/myFirstHTMLProject/images/tree.jpg" />
+   ```html
+   <img
+     alt="lone tree in a field"
+     src="/Users/myUsername/Documents/myFirstHTMLProject/images/tree.jpg"
+   />
    ```
 2. **Relative file paths** - your file's address relative to the current dcument's position.
 
@@ -90,7 +95,7 @@ To reference local files, you can use a **file path**. File paths come in two va
 
    ... the `src` would be written as:
 
-   ```
+   ```html
    <img alt="lone tree in a field" src="tree.jpg" />
    ```
 
@@ -105,7 +110,7 @@ To reference local files, you can use a **file path**. File paths come in two va
 
    ... then your `src` would start with a `.` to indicate the current directory[^2], then the `/images/` folder, then the file:
 
-   ```
+   ```html
    <img alt="lone tree in a field" src="./images/tree.jpg" />
    ```
 
@@ -121,7 +126,7 @@ To reference local files, you can use a **file path**. File paths come in two va
 
    ... then you would have to go "up" a level by using `..` before going into the adjacent folder:
 
-   ```
+   ```html
    <img alt="lone tree in a field" src="../images/tree.jpg" />
    ```
 
@@ -129,7 +134,7 @@ Not all tags require attributes, but you can apply certain attributes optionally
 
 **Classes** and **ids** are two attributes which are used in 90% of modern web pages. They help specify a given tag so it can be referenced in CSS or JavaScript. The id attribute applies a unique identifier to an element. Each unique id should only be used on one element. The class attribute is used as a shared identifier between multiple elements.
 
-```
+```html
 <h1 id="special">Special Header</h1>
 <p class="left-aligned">Text</p>
 <p class="left-aligned">Text</p>
@@ -158,13 +163,13 @@ Hierarchy in HTML is conveyed in two ways: 1) the order of the elements, and 2) 
 
 Every HTML document begins with a `DOCTYPE` declaration. This is not an HTML element. Its function is to tell the browser what version of HTML to expect and how to render it. For our purposes, we can always use the following `DOCTYPE` declaration:
 
-```
+```html
 <!DOCTYPE html>
 ```
 
 What follows is the `<html>` element. All the contents of a HTML document should be wrapped in this element. It is the top-most level in the nesting order, thus it is called the **root element**. At minimum, the `<html>` should always contain a `lang` attribute, as this tells screen readers in what language to announce the page.
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en"></html>
 ```
@@ -173,41 +178,41 @@ Within the `<html>` are the `<head>` and `<body>` tags, in that order.
 
 The `<head>` contains the webpage title and metadata. Metadata are all contained within the `<meta>` tag, but different types are distinguished by the `name` or other attributes. These do not render to the browser visibly, aside from the title, which shows in the browser tab. The `<head>` is also where you'll link external stylesheets (CSS) and scripts (JavaScript).
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Intro to Web Dev class schedule">
-    <meta name="keywords" content="HTML, CSS, JavaScript">
-    <meta name="author" content="Jo Suk">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Intro to Web Dev class schedule" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="Jo Suk" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Intro to Web Dev Schedule</title>
-    </head>
+  </head>
 </html>
 ```
 
 Below the `<head>` is the `<body>`, naturally. The `<body>` contains all the contents of your webpage and can be expected to render to the page visibly. This is where you can start loading in the tags we learned earlier.
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="Intro to Web Dev class schedule">
-        <meta name="keywords" content="HTML, CSS, JavaScript">
-        <meta name="author" content="Jo Suk">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Intro to Web Dev Schedule</title>
-    </head>
-    <body>
-        <header>
-            <h1>Welcome to Intro to Web Dev!</h1>
-        </header>
-        <main>
-            <p>Schedule goes here...</p>
-        </main>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Intro to Web Dev class schedule" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="Jo Suk" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intro to Web Dev Schedule</title>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to Intro to Web Dev!</h1>
+    </header>
+    <main>
+      <p>Schedule goes here...</p>
+    </main>
+  </body>
 </html>
 ```
 
@@ -236,16 +241,16 @@ Lorem ipsum
 
 You can nest elements within each other infinitely, but with all things, nesting order should be deliberate. We'll see once we get into CSS, but applying styles can get messy if you nest too deeply.
 
-```
+```html
 <header>
-    <h1>Lorem ipsum</h1>
+  <h1>Lorem ipsum</h1>
 </header>
 <main>
-    <section>
-        <h2>dolor sit amet</h2>
-        <p>Aliquam in <strong>hendrerit</strong> urna.</p>
-        <p>Curabitur pellentesque nibh nibh.</p>
-    </section>
+  <section>
+    <h2>dolor sit amet</h2>
+    <p>Aliquam in <strong>hendrerit</strong> urna.</p>
+    <p>Curabitur pellentesque nibh nibh.</p>
+  </section>
 </main>
 ```
 
@@ -253,17 +258,17 @@ As you may have picked up, structural elements that go around other elements are
 
 `<ul>` (unordered lists) and `<ol>` (ordered lists) elements both contain any number of `<li>` (list item) elements.
 
-```
+```html
 <ul>
-    <li>One bulleted list item</li>
-    <li>Another list item</li>
-    <li>and another</li>
+  <li>One bulleted list item</li>
+  <li>Another list item</li>
+  <li>and another</li>
 </ul>
 
 <ol>
-    <li>First list item</li>
-    <li>Second list item</li>
-    <li>Third</li>
+  <li>First list item</li>
+  <li>Second list item</li>
+  <li>Third</li>
 </ol>
 ```
 
@@ -272,12 +277,12 @@ As you may have picked up, structural elements that go around other elements are
 Some elements are designed never to contain any nested elements. These are called **void elements**, and they are written without an end tag. These are some common void elements:
 
 - `<img>` - used to embed images
-  ```
+  ```html
   <img src="/forest.png" alt="bird's eye view of a forest" />
   ```
 - `<br>` - inserts a line break
   <!-- prettier-ignore -->
-  ```
+  ```html
   <p>This is the end of a paragraph...</p>
   <br/>
   <p>... and the beginning of another</p>

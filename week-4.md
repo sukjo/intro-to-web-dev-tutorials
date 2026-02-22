@@ -19,19 +19,19 @@ It's easy to get padding and margin confused. Think of padding as "inside" the b
 
 The content box is sized using the `width` and `height` properties on the element at hand. `padding`, `border`, and `margin` are assigned as properties to the same element.
 
-```
+```css
 div {
-    width: 100px;
-    height: 100px;
-    padding: 2px;
-    border: 5px solid;
-    margin: 10px;
+  width: 100px;
+  height: 100px;
+  padding: 2px;
+  border: 5px solid;
+  margin: 10px;
 }
 ```
 
 When sizing your elements, be aware that the padding and border sizes are added to the width of an element. So in this case, the complete width of the above element would be:
 
-```
+```css
   100px content box
 + 2px left padding
 + 2px right padding
@@ -43,9 +43,9 @@ When sizing your elements, be aware that the padding and border sizes are added 
 
 When you're trying to make elements fit flush on a webpage, it can be confusing to manually calculate the full computed width of an element by adding the padding and border to the width. To get around this, there is a widely-used **alternative CSS box model** method that starts with the following declaration:
 
-```
+```css
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 ```
 
@@ -75,12 +75,12 @@ Other absolute units include `pt` (points), `pc` (picas), `mm` (millimeters), `c
 
 `%` is relative to the size of the element's parent container.
 
-```
+```css
 parent {
-    width: 500px;
+  width: 500px;
 }
 child {
-    width: 50%; /* computes to 250px */
+  width: 50%; /* computes to 250px */
 }
 ```
 
@@ -88,42 +88,42 @@ child {
 
 `em` is relative to the element's parent container's `font-size` value.
 
-```
+```css
 parent {
-    font-size: 14px;
+  font-size: 14px;
 }
 child {
-    font-size: 1em;   /* 14 * 1 = 14px */
-    font-size: 1.2em; /* 14 * 1.2 = 16.8px */
-    font-size: 2em;   /* 14 * 2 = 28px */
+  font-size: 1em; /* 14 * 1 = 14px */
+  font-size: 1.2em; /* 14 * 1.2 = 16.8px */
+  font-size: 2em; /* 14 * 2 = 28px */
 }
 ```
 
 `rem` is relative to the `<html>` (or root) element's `font-size` value.
 
-```
+```css
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 child {
-    font-size: 1rem; /* 16 * 1 = 16px */
-    font-size: 3rem; /* 16 * 3 = 48px */
+  font-size: 1rem; /* 16 * 1 = 16px */
+  font-size: 3rem; /* 16 * 3 = 48px */
 }
 ```
 
 Unlike `rem`, which is always based on the root, the computed size of an `em` size can compound, since elements can be nested multiple times.
 
-```
+```css
 parent {
-    font-size: 14px;
+  font-size: 14px;
 }
 child {
-    font-size: 1em;   /* 14 * 1 = 14px */
-    font-size: 1.2em; /* 14 * 1.2 = 16.8px */
-    font-size: 2em;   /* 14 * 2 = 28px */
+  font-size: 1em; /* 14 * 1 = 14px */
+  font-size: 1.2em; /* 14 * 1.2 = 16.8px */
+  font-size: 2em; /* 14 * 2 = 28px */
 }
 grandchild {
-    font-size: 1.5em
+  font-size: 1.5em;
 }
 ```
 
@@ -131,13 +131,13 @@ For this reason, `rem` is usually preferred over `em`.
 
 `vw` and `vh` stand for **viewport width** and **viewport height**, respectively. The **viewport** is the entire viewable area of a browser window, at any given time or on any given device, which can vary quite a bit. Luckily, the viewport size is tracked by the browser in real-time, allowing us to base the size of our webpage's contents on a percentage of the current viewport dimensions. `1vw` equals 1% of the viewport width, and `1vh` equals 1% of the viewport height, so an element with `width: 50vw` will always take up exactly half the browser window's width, regardless of screen size or if the user resizes their browser.
 
-```
+```css
 /* say the viewport width = 1920px,
 and the viewport height = 1080px */
 
 element {
-    width: 1vw;  /* 1920 * 0.01 = 19.2px */
-    height: 1vh; /* 1080 * 0.01 = 10.8px */
+  width: 1vw; /* 1920 * 0.01 = 19.2px */
+  height: 1vh; /* 1080 * 0.01 = 10.8px */
 }
 ```
 
@@ -194,16 +194,16 @@ Display or decorative fonts are an umbrella category for any fonts that are used
 
 Here are the main properties you'll use to style text in CSS:
 
-```
+```css
 p {
-  font-family: 'Georgia', serif; /* typeface */
-  font-size: 16px;               /* text size */
-  font-weight: 400;              /* text thickness */
-  font-style: italic;            /* normal, italic, or oblique */
-  line-height: 1.5;              /* space between lines of text */
-  letter-spacing: 0.5px;         /* space between letters */
-  text-transform: uppercase;     /* uppercase, lowercase, capitalize */
-  text-decoration: underline;    /* underline, line-through, none */
+  font-family: "Georgia", serif; /* typeface */
+  font-size: 16px; /* text size */
+  font-weight: 400; /* text thickness */
+  font-style: italic; /* normal, italic, or oblique */
+  line-height: 1.5; /* space between lines of text */
+  letter-spacing: 0.5px; /* space between letters */
+  text-transform: uppercase; /* uppercase, lowercase, capitalize */
+  text-decoration: underline; /* underline, line-through, none */
 }
 ```
 
@@ -310,7 +310,7 @@ body {
 3. Use the `@font-face` rule in CSS to set up your font's name, source file path and type, weight, and style.
 4. Apply the font to an element using the name you gave it.
 
-```
+```css
 @font-face {
     font-family: 'Aleo';
     src: url('/fonts/aleo.woff2) format('woff2'),
@@ -333,24 +333,24 @@ As you can see, you can also name a generic font family as a fallback font. If y
 
 Per accessibility standards, 16px is considered the minimum font size for regular body text. To make it easier on yourself, you can set this once as your "global" text size in the root element and then use `1rem` every time you want something to be `16px`. That way, you can later adjust the base font size of your document, and all the text will be updated proportionally.
 
-```
+```css
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 h1 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 body {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 ```
 
 Line height or leading does not necessarily need a unit. Any value assigned to the `line-height` property represents a ratio.
 
-```
+```css
 p {
-    font-size: 16px;
-    line-height: 1.7;  /* 16 * 1.7 = 27.2px between baselines */
+  font-size: 16px;
+  line-height: 1.7; /* 16 * 1.7 = 27.2px between baselines */
 }
 ```
 

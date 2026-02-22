@@ -62,19 +62,19 @@ A README file is a standard text file that introduces and explains a project. Co
 
 5. Write a "commit" by typing `git commit -m` followed by a brief message in quotations describing what changes you made. For example:
 
-```
+```bash
 git commit -m "first commit with README"
 ```
 
 6. Connect your local repository to your GitHub (or remote) repository by entering `git remote add origin` followed by the URL from the quick setup page on GitHub. For example:
 
-```
+```bash
 git remote add origin git@github.com:sukjo/test.git
 ```
 
 7. "Push" your README to GitHub by entering the below lines, one at a time. Follow the instructions if you're asked to log into your GitHub account.
 
-```
+```bash
 git branch -M main
 git push -u origin main
 ```

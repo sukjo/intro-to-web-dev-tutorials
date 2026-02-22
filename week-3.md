@@ -22,8 +22,8 @@ If you look at the webpage rendered by your `index.html`, you won't see any chan
 
 To link a **stylesheet** (as CSS files are typically called), go to your `index.html` and insert the following line into the `<head>` of your document:
 
-```
-<link rel='stylesheet' href='styles.css'>
+```html
+<link rel="stylesheet" href="styles.css" />
 ```
 
 By now, you should be able to intuit what this means.
@@ -40,7 +40,7 @@ After linking the stylesheet, you should see an update to your webpage.
 
 You can insert multiple properties into a CSS rule. Each property-value combination should end with a semi-colon to separate each line. If you forget a semi-colon between two lines, the stylesheet will break.
 
-```
+```css
 body {
   color: #ff0000; /* red */
   background-color: #f9f9f9; /* light gray */
@@ -67,16 +67,16 @@ In CSS, you can select which element(s) you want to style by using the tag name 
 
 To select a tag name, write it out verbatim.
 
-```
+```css
 main {
-    border-style: solid;
-    border-color: #0000FF;
+  border-style: solid;
+  border-color: #0000ff;
 }
 ```
 
 To select an element by its class, write the class name with a `.` in front.
 
-```
+```css
 .single-lines {
   border-style: dotted;
   border-color: #000000;
@@ -85,9 +85,9 @@ To select an element by its class, write the class name with a `.` in front.
 
 To select an element by its id, write the id name with a `#` in front.
 
-```
+```css
 #instructions {
-    background-color: #fff000;
+  background-color: #fff000;
 }
 ```
 
@@ -97,27 +97,29 @@ Classes and ids don't change the semantic meaning of your HTML, but try not to n
 
 Last week we mentioned ids can only be used once in a document, while classes can be applied to multiple elements. On the flip side, you can apply multiple classes and ids to a single element, just make sure not to use the same id twice. Multiple classes are separated by a space and go in the same "class" attribute.
 
-```
-<div class="wrapper left-column" id="calendar">
+```html
+<div class="wrapper left-column" id="calendar"></div>
 ```
 
 Going back to selectors, the universal selector, `*`, can be used to match elements of any type that follow the asterisk. If no element is specified, the `*` will grab all elements within the document.
 
-```
+```css
 * {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 /* versus... */
 * p {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 ```
 
 If you want to apply styles to a group of different elements, you can select multiple by separating them with commas.
 
-```
-h1, h2, h3 {
-    text-align: center;
+```css
+h1,
+h2,
+h3 {
+  text-align: center;
 }
 ```
 
@@ -129,17 +131,17 @@ CSS combinators are used to define relationships between selectors. These go bet
 
 We already saw a combinator in the previous section, when we added `p` after `*` to select all `p` elements in our document. The space between the two selectors is a **descendant combinator**. This essentially says, "grab all `p` elements that are nested within `*`, or all elements."
 
-```
+```css
 * p {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 ```
 
 Another way of explaining the descendant combinator is, "select all [second element selected] that have [first element selected] as its ancestor".
 
-```
+```css
 nav a {
-    color: #00cfcf;
+  color: #00cfcf;
 }
 ```
 
@@ -147,9 +149,9 @@ Notice how the above did not change the color of the anchor tags in the footer? 
 
 The next combinator is the **child combinator**, which is written with a `<`. This combinator only grabs elements that match the second element that are _direct children_ of the first element.
 
-```
+```css
 main > p {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 ```
 
@@ -157,25 +159,25 @@ The above example only applies the `text-transform` to paragraph elements that a
 
 There are also **next-sibling** and **subsequent sibling combinators**. The next-sibling combinator `+` grabs the second element _if and only if_ it follows immediately after the first element, and both are children of the same parent element.
 
-```
+```css
 h3 + a {
-    background-color: #fff000;
+  background-color: #fff000;
 }
 ```
 
 The subsequent sibling combinator `~` grabs all instances of the second element that comes after the first element (whether immediately or separated by a few siblings), and that share the same parent as the first element.
 
-```
+```css
 h3 ~ a {
-    background-color: #fff000;
+  background-color: #fff000;
 }
 ```
 
 You can nest combinators to grab very specific elements. For example, the following rule grabs any paragraph elements that are grandchildren of the `<main>`.
 
-```
+```css
 main > * > p {
-    color: #ffccee;
+  color: #ffccee;
 }
 ```
 
@@ -183,23 +185,23 @@ main > * > p {
 
 Cascading style sheets are named such because they apply rules hierarchically. When rules overlap, those closer to the bottom of the CSS document will apply over any preceding rules, since the document is read from top to bottom.
 
-```
+```css
 ul {
-    list-style-type: decimal;
+  list-style-type: decimal;
 }
 ul {
-    list-style-type: square; /* this one wins */
+  list-style-type: square; /* this one wins */
 }
 ```
 
 Additionally, more specific selections will be applied over more general ones.
 
-```
+```css
 ul {
-    color: #ff0000
+  color: #ff0000;
 }
 main ul {
-    color: #00cfcf /* this one wins */
+  color: #00cfcf; /* this one wins */
 }
 ```
 
@@ -211,24 +213,22 @@ So far we've been writing our CSS rules in an external `styles.css` document. Th
 
 **Inline styling** is CSS applied directly within an .html document, within the opening tag. If this coexists with an external stylesheet, any styles applied here will override the stylesheet.
 
-```
-<header style="border-style: solid; border-color: #cc99ff">
-...
-</header>
+```html
+<header style="border-style: solid; border-color: #cc99ff">...</header>
 ```
 
 **Internal styling** is written within a `<style>` tag within the .html document's `<head>`. Any styling applied here will override the external stylesheet as well, but _not_ the inline styling.
 
-```
-  <head>
-    ...
-    <style>
-      header {
-        border-style: solid;
-        border-color: #cc99ff;
-      }
-    </style>
-  </head>
+```html
+<head>
+  ...
+  <style>
+    header {
+      border-style: solid;
+      border-color: #cc99ff;
+    }
+  </style>
+</head>
 ```
 
 Generally, the order of priority for the CSS sources covered today is, from highest to lowest:

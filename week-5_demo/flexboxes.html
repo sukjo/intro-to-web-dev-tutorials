@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Flexbox Demo</title>
+    <style>
+      /* ----------------- GENERAL STYLING ----------------- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+      }
+
+      .demo {
+        margin-bottom: 3rem;
+      }
+
+      h1 {
+        margin-bottom: 2rem;
+      }
+
+      h2 {
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+      }
+
+      h3 {
+        margin-bottom: 1rem;
+      }
+
+      .flex-container {
+        border: 2px dashed lightgray;
+        padding: 1rem;
+        min-height: 200px;
+      }
+
+      /* Shared item styling */
+      .item {
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 80px;
+      }
+
+      /* ----------------- FLEX CONTAINER DEMOS ----------------- */
+
+      /* FLEX DIRECTION */
+
+      .flex-direction-row .item {
+        background-color: mediumseagreen;
+        border: 2px solid darkgreen;
+      }
+
+      .flex-direction-row {
+        display:;
+        flex-direction:;
+        gap: 1rem;
+      }
+
+      .flex-direction-column {
+        display:;
+        flex-direction:;
+        gap: 1rem;
+      }
+
+      .flex-direction-column .item {
+        background-color: dodgerblue;
+        border: 2px solid darkblue;
+      }
+
+      /* FLEX WRAP */
+
+      .flex-wrap {
+        display: flex;
+        flex-wrap:;
+      }
+
+      .flex-wrap .item {
+        background-color: orange;
+        border: 2px solid orangered;
+        width: 150px;
+      }
+
+      /* JUSTIFY CONTENT */
+
+      .flex-justify {
+        display: flex;
+        justify-content:;
+      }
+
+      .flex-justify .item {
+        background-color: mediumorchid;
+        border: 2px solid purple;
+        color: white;
+      }
+
+      /* ALIGN ITEMS */
+
+      .flex-align {
+        display: flex;
+        align-items:;
+      }
+
+      .flex-align .item {
+        background-color: deepskyblue;
+        border: 2px solid darkturquoise;
+      }
+
+      /* GAP PROPERTY */
+
+      .flex-gap {
+        display: flex;
+        flex-wrap: wrap;
+        gap:;
+      }
+
+      .flex-gap .item {
+        width: 400px;
+        height: 100px;
+        background-color: hotpink;
+        border: 2px solid deeppink;
+        color: white;
+      }
+
+      /* ----------------- FLEX ITEM DEMOS ----------------- */
+
+      /* FLEX GROW */
+
+      .flex-grow-demo {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .flex-grow-demo .item {
+        background-color: royalblue;
+        border: 2px solid darkblue;
+        color: white;
+      }
+
+      .flex-grow-demo .grow-1 {
+        flex-grow:;
+      }
+
+      .flex-grow-demo .grow-2 {
+        flex-grow:;
+        background-color: teal;
+        border: 2px solid darkslategrey;
+      }
+
+      /* FLEX SHRINK */
+
+      .flex-shrink-demo {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .flex-shrink-demo .item {
+        background-color: slateblue;
+        border: 2px solid indigo;
+        color: white;
+        width: 200px;
+        flex-shrink: 1;
+      }
+
+      .flex-shrink-demo .no-shrink {
+        flex-shrink: 0;
+        background-color: lightcoral;
+        border: 2px solid crimson;
+      }
+
+      /* FLEX BASIS */
+
+      .flex-basis-demo {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .flex-basis-demo .item {
+        background-color: sienna;
+        border: 2px solid saddlebrown;
+        color: white;
+        flex-grow:;
+        flex-basis:;
+      }
+
+      .flex-basis-demo .basis-200 {
+        flex-basis:;
+        background-color: mediumseagreen;
+        border: 2px solid darkgreen;
+      }
+
+      /* FLEX (shorthand) */
+
+      .flex-shorthand-demo {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .flex-shorthand-demo .item {
+        /* width: 200px; */
+      }
+
+      .flex-shorthand-demo .flex-3 {
+        flex:;
+        background-color: dodgerblue;
+        border: 2px solid darkblue;
+        color: white;
+      }
+
+      .flex-shorthand-demo .flex-5 {
+        flex:;
+        background-color: mediumorchid;
+        border: 2px solid purple;
+        color: white;
+      }
+
+      .flex-shorthand-demo .flex-default {
+        flex:;
+        background-color: orange;
+        border: 2px solid orangered;
+      }
+
+      /* ALIGN SELF */
+
+      .flex-align-self-demo {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        min-height: 200px;
+      }
+
+      .flex-align-self-demo .item {
+        background-color: lightgray;
+        border: 2px solid gray;
+      }
+
+      .flex-align-self-demo .self-center {
+        align-self:;
+        background-color: tomato;
+        border: 2px solid crimson;
+        color: white;
+      }
+
+      .flex-align-self-demo .self-end {
+        align-self:;
+        background-color: deepskyblue;
+        border: 2px solid darkturquoise;
+        color: white;
+      }
+
+      /* ORDER */
+
+      .flex-order-demo {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .flex-order-demo .item {
+        background-color: gold;
+        border: 2px solid goldenrod;
+      }
+
+      .flex-order-demo .different-order {
+        order:;
+        background-color: hotpink;
+        border: 2px solid deeppink;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Flex Container Properties</h1>
+
+    <div class="demo">
+      <h2>Flex Direction</h2>
+      <div class="flex-container flex-direction-row">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+      </div>
+      <br />
+      <div class="flex-container flex-direction-column">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h2>Flex Wrap</h2>
+      <p>Resize window to see the effect</p>
+      <div class="flex-container flex-wrap">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+        <div class="item">Item 7</div>
+        <div class="item">Item 8</div>
+        <div class="item">Item 9</div>
+        <div class="item">Item 10</div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h2>Justify Content</h2>
+      <div class="flex-container flex-justify">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h2>Align Items</h2>
+      <div class="flex-container flex-align">
+        <div class="item">item 1</div>
+        <div class="item">item 2</div>
+        <div class="item">item 3</div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h2>Gap Property</h2>
+      <div class="flex-container flex-gap">
+        <div class="item">item 1</div>
+        <div class="item">item 2</div>
+        <div class="item">item 3</div>
+        <div class="item">item 4</div>
+        <div class="item">item 5</div>
+        <div class="item">item 6</div>
+        <div class="item">item 7</div>
+        <div class="item">item 8</div>
+        <div class="item">item 9</div>
+        <div class="item">item 10</div>
+      </div>
+    </div>
+
+    <h1>Flex Item Properties</h1>
+
+    <div class="demo">
+      <h2>Flex Grow</h2>
+      <div class="flex-container flex-grow-demo">
+        <div class="item grow-1">grow: 1</div>
+        <div class="item grow-2">grow: 2</div>
+        <div class="item grow-1">grow: 1</div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h2>Flex Shrink</h2>
+      <p>Resize window to see the effect</p>
+      <div class="flex-container flex-shrink-demo">
+        <div class="item">shrink: 1</div>
+        <div class="item no-shrink">shrink: 0</div>
+        <div class="item">shrink: 1</div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h2>Flex Basis</h2>
+      <div class="flex-container flex-basis-demo">
+        <div class="item">basis: auto</div>
+        <div class="item basis-200">basis: 200px</div>
+        <div class="item">basis: auto</div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h2>Flex Shorthand</h2>
+      <div class="flex-container flex-shorthand-demo">
+        <div class="item flex-3">flex: 3</div>
+        <div class="item flex-5">flex: 5</div>
+        <div class="item flex-default">
+          flex: 0 1 auto (default)
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis
+            magni eligendi dolorum eum eius impedit ipsa. Commodi quam et
+            nesciunt provident nostrum nisi cumque. Perspiciatis sit ab nam non
+            dolorem.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h2>Align Self</h2>
+      <div class="flex-container flex-align-self-demo">
+        <div class="item">default</div>
+        <div class="item self-center">align-self: center</div>
+        <div class="item self-end">align-self: flex-end</div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h2>Order Property</h2>
+      <div class="flex-container flex-order-demo">
+        <div class="item">Default order: 1</div>
+        <div class="item">Default order: 2</div>
+        <div class="item">Default order: 3</div>
+        <div class="item different-order">Default order: 4</div>
+      </div>
+    </div>
+  </body>
+</html>

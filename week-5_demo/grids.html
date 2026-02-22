@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid Demo</title>
+    <style>
+      /* ----------------- GENERAL STYLING ----------------- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+      }
+
+      .demo {
+        margin-bottom: 3rem;
+      }
+
+      h1 {
+        margin-bottom: 2rem;
+      }
+
+      h2 {
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+      }
+
+      .grid-container {
+        border: 2px dashed lightgray;
+        padding: 1rem;
+      }
+
+      /* ----------------- GENERAL STYLING ----------------- */
+
+      /* BASIC GRID WITH FR UNITS */
+
+      .grid-basic {
+        display:;
+        grid-template-columns:;
+        grid-template-rows:;
+      }
+
+      .grid-basic .item {
+        background-color: mediumseagreen;
+        border: 2px solid darkgreen;
+        padding: 1rem;
+      }
+
+      /* NAMED GRID AREAS */
+
+      .grid-areas {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 80px 200px 60px;
+        grid-template-areas:
+          "header header header"
+          "sidebar main main"
+          "footer footer footer";
+      }
+
+      .grid-areas .header {
+        grid-area:;
+        background-color: dodgerblue;
+        border: 2px solid darkblue;
+        padding: 1rem;
+      }
+
+      .grid-areas .sidebar {
+        grid-area:;
+        background-color: orange;
+        border: 2px solid darkorange;
+        padding: 1rem;
+      }
+
+      .grid-areas .main {
+        grid-area:;
+        background-color: mediumorchid;
+        border: 2px solid purple;
+        padding: 1rem;
+        color: white;
+      }
+
+      .grid-areas .footer {
+        grid-area:;
+        background-color: tomato;
+        border: 2px solid crimson;
+        padding: 1rem;
+        color: white;
+      }
+
+      /* GAP PROPERTIES */
+
+      .grid-gap {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 100px);
+        row-gap:;
+        column-gap:;
+      }
+
+      .grid-gap .item {
+        background-color: orange;
+        border: 2px solid orangered;
+        padding: 1rem;
+      }
+
+      /* ALIGNMENT PROPERTIES */
+
+      .grid-alignment {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 150px 150px;
+        gap: 1rem;
+        justify-items:;
+        align-items:;
+      }
+
+      .grid-alignment .item {
+        background-color: deepskyblue;
+        border: 2px solid darkturquoise;
+        padding: 1rem;
+        width: 80px;
+        height: 80px;
+      }
+
+      /* ----------------- GRID ITEM DEMOS ----------------- */
+
+      /* SPANNING ROWS & COLUMNS */
+
+      .grid-spanning {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 100px);
+        gap: 1rem;
+      }
+
+      .grid-spanning .item {
+        background-color: gold;
+        border: 2px solid goldenrod;
+        padding: 1rem;
+      }
+
+      .grid-spanning .span-cols {
+        grid-column:;
+        background-color: hotpink;
+        border: 2px solid deeppink;
+        color: white;
+      }
+
+      .grid-spanning .span-rows {
+        grid-row:;
+        background-color: royalblue;
+        border: 2px solid darkblue;
+        color: white;
+      }
+
+      .grid-spanning .span-both {
+        grid-column:;
+        grid-row:;
+        background-color: teal;
+        border: 2px solid darkcyan;
+        color: white;
+      }
+
+      /* LINED-BASED POSITIONING */
+
+      .grid-positioning {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 100px);
+        gap: 1rem;
+      }
+
+      .grid-positioning .item {
+        background-color: lightcoral;
+        border: 2px solid crimson;
+        padding: 1rem;
+      }
+
+      .grid-positioning .positioned {
+        grid-column:;
+        grid-row:;
+        background-color: slateblue;
+        border: 2px solid indigo;
+        color: white;
+      }
+
+      /* INDIVIDUAL ITEM ALIGNMENT */
+
+      .grid-self-align {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 150px);
+        gap: 1rem;
+      }
+
+      .grid-self-align .item {
+        background-color: sienna;
+        border: 2px solid saddlebrown;
+        padding: 1rem;
+        color: white;
+        width: 100px;
+        height: 100px;
+        word-break: break-all;
+      }
+
+      .grid-self-align .start-start {
+        justify-self:;
+        align-self:;
+      }
+
+      .grid-self-align .center-center {
+        justify-self:;
+        align-self:;
+      }
+
+      .grid-self-align .end-end {
+        justify-self:;
+        align-self:;
+      }
+
+      .grid-self-align .stretch {
+        justify-self:;
+        align-self:;
+        width:;
+        height:;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Grid Container Properties</h1>
+
+    <div class="demo">
+      <h2>Basic Grid with fr Units</h2>
+      <div class="grid-container grid-basic">
+        <div class="item">200px</div>
+        <div class="item">1fr</div>
+        <div class="item">2fr</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h2>Named Grid Areas</h2>
+      <div class="grid-container grid-areas">
+        <div class="header">Header</div>
+        <div class="sidebar">Sidebar</div>
+        <div class="main">Main Content</div>
+        <div class="footer">Footer</div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h2>Gap Properties</h2>
+      <div class="grid-container grid-gap">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h2>Alignment Properties</h2>
+      <div class="grid-container grid-alignment">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+      </div>
+    </div>
+
+    <h1>Grid Item Properties</h1>
+
+    <div class="demo">
+      <h2>Spanning Rows and Columns</h2>
+      <div class="grid-container grid-spanning">
+        <div class="item">1</div>
+        <div class="item span-cols">span 2 cols</div>
+        <div class="item">2</div>
+        <div class="item span-rows">span 3 rows</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item span-both">span 2x2</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h2>Line-based Grid Item Positioning</h2>
+      <div class="grid-container grid-positioning">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item positioned">
+          grid-column: 2 / 4;<br />grid-row: 1 / 3
+        </div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <h2>Individual Item Alignment</h2>
+      <div class="grid-container grid-self-align">
+        <div class="item start-start">start/start</div>
+        <div class="item center-center">center/center</div>
+        <div class="item end-end">end/end</div>
+        <div class="item">default</div>
+        <div class="item stretch">stretch</div>
+        <div class="item">default</div>
+      </div>
+    </div>
+  </body>
+</html>
