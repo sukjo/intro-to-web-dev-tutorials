@@ -1,4 +1,4 @@
-# CSS (Responsive Design continued)
+# CSS (Week 5 Responsive Design continued)
 
 ## Grids
 
