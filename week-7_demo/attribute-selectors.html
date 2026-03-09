@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribute Selectors Demo</title>
+    <style>
+      /* GENERAL STYLING */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      h2 {
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        margin-bottom: 1rem;
+      }
+
+      .demo {
+        margin-bottom: 2rem;
+        background-color: white;
+        border: 2px dashed lightgray;
+        padding: 1.5rem;
+      }
+
+      p {
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      /* EXACT MATCH ATTRIBUTE SELECTOR */
+
+      .link-list a[href="https://nyu.edu"] {
+      }
+
+      .link-list a {
+        display: block;
+        padding: 0.5rem;
+        color: dodgerblue;
+      }
+
+      /* STARTS WITH ATTRIBUTE SELECTOR */
+
+      /* COMBINING WITH PSEUDO-CLASSES */
+
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .image-grid div {
+        text-align: center;
+        padding: 1rem;
+        background-color: whitesmoke;
+      }
+
+      .image-grid img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto 0.5rem;
+      }
+
+      /* DATA ATTRIBUTE SELECTORS */
+    </style>
+  </head>
+  <body>
+    <h1>Attribute Selectors Demo</h1>
+
+    <h2>exact match [attribute="value"]</h2>
+
+    <div class="demo">
+      <div class="link-list">
+        <a href="https://nyu.edu">NYU Homepage</a>
+        <a href="https://digitalhumanities.nyu.edu/">NYU Digital Humanities</a>
+        <a href="https://library.nyu.edu/">NYU Libraries</a>
+        <a href="https://meet.nyu.edu/locations/silver-center/"
+          >NYU Silver Center</a
+        >
+      </div>
+    </div>
+
+    <h2>starts with [attribute^="value"]</h2>
+
+    <div class="demo">
+      <div class="link-list">
+        <a href="http://example.com">external link</a>
+        <a href="https://google.com">external link</a>
+        <a href="mailto:hello@example.com">email link</a>
+        <a href="#section1">internal link</a>
+        <a href="#section2">internal link</a>
+      </div>
+    </div>
+
+    <h2>combining with pseudo-classes</h2>
+
+    <div class="demo">
+      <div class="image-grid">
+        <div>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/7/78/European_starling_%28Sturnus_vulgaris%29_in_flight_Almoloya_composite.jpg"
+            alt="European starling (Sturnus vulgaris) in flight, Almoloya del Rio, Mexico. Composite of four images showing a bird dropping an insect then diving to recapture it."
+          />
+        </div>
+        <div>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/c/cb/019_Stacked_images_of_an_European_Bee-eater_in_flight_Photo_by_Giles_Laurent.jpg"
+          />
+        </div>
+        <div>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/3/3a/080_Wild_Barn_swallow_in_flight_at_Pfyn-Finges_Photo_by_Giles_Laurent.jpg"
+            alt="Wild Barn swallow in flight at Pfyn-Finges"
+          />
+        </div>
+        <div>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/0/09/151_Purple_roller_in_flight_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg"
+          />
+        </div>
+      </div>
+    </div>
+
+    <h2>data-* attribute selectors</h2>
+
+    <div class="demo">
+      <div data-category="starter">
+        <h4>hot and sour soup</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque,
+          praesentium eius, cupiditate obcaecati laudantium quas animi
+          laboriosam magni aspernatur, omnis ab nemo repellat aut deleniti ipsum
+          illum tempora dolor corrupti.
+        </p>
+      </div>
+      <div data-category="entree">
+        <h4>stir-fried yu choy</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque,
+          praesentium eius, cupiditate obcaecati laudantium quas animi
+          laboriosam magni aspernatur, omnis ab nemo repellat aut deleniti ipsum
+          illum tempora dolor corrupti.
+        </p>
+      </div>
+      <div data-category="dessert">
+        <h4>egg tart</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque,
+          praesentium eius, cupiditate obcaecati laudantium quas animi
+          laboriosam magni aspernatur, omnis ab nemo repellat aut deleniti ipsum
+          illum tempora dolor corrupti.
+        </p>
+      </div>
+      <div data-category="dessert">
+        <h4>sesame ball</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque,
+          praesentium eius, cupiditate obcaecati laudantium quas animi
+          laboriosam magni aspernatur, omnis ab nemo repellat aut deleniti ipsum
+          illum tempora dolor corrupti.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

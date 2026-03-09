@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo-classes Demo</title>
+    <style>
+      /* ----------------- GENERAL STYLING ----------------- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      h2 {
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+        color: black;
+      }
+
+      h3 {
+        margin-bottom: 1rem;
+      }
+
+      .demo {
+        margin-bottom: 2rem;
+        background-color: white;
+        border: 2px dashed lightgray;
+        padding: 1.5rem;
+      }
+
+      .instructions {
+        background-color: lightyellow;
+        border: 2px solid goldenrod;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        font-style: italic;
+      }
+
+      /* ----------------- STATE-BASED PSEUDO-CLASSES ----------------- */
+
+      /* BUTTON */
+
+      .button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: dodgerblue;
+        color: white;
+        border: 2px solid darkblue;
+        cursor: pointer;
+        font-size: 1rem;
+        margin: 0.5rem;
+        transition: all 0.3s;
+      }
+
+      .button:hover {
+      }
+
+      .button:active {
+      }
+
+      .button:focus-visible {
+      }
+
+      /* LINK */
+      .link-demo a {
+        font-size: 1.2rem;
+        margin-right: 1rem;
+      }
+
+      .link-demo a:link {
+      }
+
+      .link-demo a:visited {
+      }
+
+      .link-demo a:hover {
+      }
+
+      /* ----------------- STRUCTURAL PSEUDO-CLASSES ----------------- */
+
+      /* FIRST/LAST CHILD */
+
+      .menu {
+        list-style: none;
+        background-color: lavender;
+        border: 2px solid rebeccapurple;
+        padding: 1rem;
+      }
+
+      .menu li {
+        padding: 0.75rem;
+        background-color: white;
+        border: 1px solid lightgray;
+        margin-bottom: 0.5rem;
+      }
+
+      .menu li:first-child {
+      }
+
+      .menu li:last-child {
+      }
+
+      .menu li:nth-child() {
+      }
+
+      /* FIRST/LAST OF TYPE */
+
+      .article-demo {
+        background-color: lavender;
+        border: 2px solid rebeccapurple;
+        padding: 1.5rem;
+      }
+
+      .article-demo p {
+        margin-bottom: 1rem;
+      }
+
+      .article-demo p:first-of-type {
+      }
+
+      .article-demo p:last-of-type {
+      }
+
+      .article-demo p:nth-of-type() {
+      }
+
+      .article-demo h4 {
+        margin: 1rem 0;
+      }
+
+      /* ----------------- LOGICAL PSEUDO-CLASSES ----------------- */
+
+      /* :IS() */
+
+      .card :is(h4, p, li) {
+      }
+
+      .card {
+        background-color: honeydew;
+        border: 2px solid mediumseagreen;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .card ul {
+        margin-left: 1.5rem;
+        margin-top: 0.5rem;
+      }
+
+      /* :NOT() */
+
+      .paragraph-demo p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
+      }
+
+      .paragraph-demo p:not(.code-snippet) {
+      }
+
+      .paragraph-demo .code-snippet {
+      }
+
+      /* :HAS() */
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+
+      .gallery-item {
+        background-color: honeydew;
+        border: 2px solid mediumseagreen;
+        padding: 1rem;
+        min-height: 150px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .gallery-item:has(img) {
+      }
+
+      .gallery-item img {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pseudo-classes</h1>
+
+    <h2>state-based pseudo-classes</h2>
+
+    <div class="demo">
+      <button class="button">hover / click / tab</button>
+    </div>
+
+    <div class="demo link-demo">
+      <a href="https://nyu.edu/">link 1</a>
+      <a href="https://digitalhumanities.nyu.edu/">link 2</a>
+      <a href="https://digitalhumanities.nyu.edu/news/">link 3</a>
+    </div>
+
+    <h2>structural pseudo-classes</h2>
+
+    <div class="demo">
+      <h3>child selectors</h3>
+      <ul class="menu">
+        <li>menu item</li>
+        <li>menu item</li>
+        <li>menu item</li>
+        <li>menu item</li>
+        <li>menu item</li>
+      </ul>
+    </div>
+
+    <div class="demo">
+      <h3>type selectors</h3>
+      <div class="article-demo">
+        <h4>Heading</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+          consectetur nisi itaque qui eius doloremque tempore officia illo,
+          blanditiis architecto, culpa quo soluta. Vero dolor iure voluptas in
+          veritatis asperiores?
+        </p>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam cum,
+          blanditiis, provident optio natus quia vitae nemo sequi iure id
+          reiciendis quidem. Voluptatum suscipit id odit, nostrum porro
+          voluptatibus neque!
+        </p>
+        <h4>Heading</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+          consectetur nisi itaque qui eius doloremque tempore officia illo,
+          blanditiis architecto, culpa quo soluta. Vero dolor iure voluptas in
+          veritatis asperiores?
+        </p>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam cum,
+          blanditiis, provident optio natus quia vitae nemo sequi iure id
+          reiciendis quidem. Voluptatum suscipit id odit, nostrum porro
+          voluptatibus neque!
+        </p>
+      </div>
+    </div>
+
+    <h2>logical pseudo-classes</h2>
+
+    <div class="demo">
+      <h3>:is()</h3>
+      <div class="card">
+        <h4>Card heading</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum,
+          assumenda illo praesentium itaque ab dolor quibusdam voluptas ullam
+          nulla quam consequatur adipisci molestias obcaecati veritatis nisi
+          suscipit, eveniet maiores earum?
+        </p>
+        <ul>
+          <li>I'm a list item</li>
+          <li>I'm a list item</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="demo paragraph-demo">
+      <h3>:not()</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+        reiciendis blanditiis, et animi repellat quis, perspiciatis perferendis
+        ipsa quae in tempora reprehenderit veniam odit asperiores, voluptatum
+        libero ut architecto non!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+        reiciendis temporibus numquam. Aspernatur est, eveniet quia deserunt
+        facere quidem saepe error, temporibus, suscipit reiciendis vero laborum
+        deleniti nobis. Est, dolores?
+      </p>
+      <p class="code-snippet">console.log("Hello, world")</p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
+        consectetur reprehenderit a necessitatibus esse, neque sunt officiis id
+        perferendis deserunt placeat aperiam dolores corporis? Quia odio
+        consequatur harum ipsum saepe.
+      </p>
+    </div>
+
+    <div class="demo">
+      <h3>:has()</h3>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/3/33/Cherry_blossom_P1000452.jpg"
+            alt="Placeholder 1"
+          />
+          Lorem ipsum
+        </div>
+        <div class="gallery-item">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+          pariatur sunt necessitatibus assumenda ad dolor quae?
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/3/33/Cherry_blossom_P1000452.jpg"
+            alt="Placeholder 2"
+          />
+          Lorem ipsum
+        </div>
+        <div class="gallery-item">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+          pariatur sunt necessitatibus assumenda ad dolor quae?
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/3/33/Cherry_blossom_P1000452.jpg"
+            alt="Placeholder 3"
+          />
+          Lorem ipsum
+        </div>
+        <div class="gallery-item">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+          pariatur sunt necessitatibus assumenda ad dolor quae?
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
