@@ -112,12 +112,14 @@
       /* FILTER FUNCTIONS */
 
       .filter-container {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 1rem;
       }
 
       .filter-item {
+        width: calc((100% - 3 * 1rem) / 4);
         text-align: center;
       }
 

@@ -42,10 +42,29 @@
 
       /* decorative quotes */
 
+      blockquote {
+        position: relative;
+        text-align: justify;
+      }
+
       blockquote::before {
+        content: "\201C";
+        font-size: 10rem;
+        opacity: 0.3;
+        color: forestgreen;
+        position: absolute;
+        top: -20px;
+        left: -30px;
       }
 
       blockquote::after {
+        content: "\201D";
+        font-size: 10rem;
+        opacity: 0.3;
+        color: forestgreen;
+        position: absolute;
+        bottom: -100px;
+        right: 30px;
       }
 
       .quote {
@@ -64,6 +83,11 @@
         margin-right: 2rem;
       }
 
+      .link-demo a[href^="http"]::after {
+        content: "\2197";
+        margin-left: 0.5ch;
+      }
+
       /* ::FIRST-LETTER EXAMPLE */
 
       .drop-cap {
@@ -71,11 +95,23 @@
         line-height: 1.8;
       }
 
+      .drop-cap::first-letter {
+        font-family: cursive;
+        font-size: 6rem;
+        line-height: 3rem;
+        margin-right: 0.1ch;
+        color: lightseagreen;
+      }
+
       /* ::FIRST-LINE EXAMPLE */
 
       .first-line-demo {
         font-size: 1.1rem;
         line-height: 1.8;
+      }
+
+      .first-line-demo::first-line {
+        color: blue;
       }
     </style>
   </head>

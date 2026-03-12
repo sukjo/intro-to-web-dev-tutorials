@@ -45,6 +45,7 @@
       /* EXACT MATCH ATTRIBUTE SELECTOR */
 
       .link-list a[href="https://nyu.edu"] {
+        color: red;
       }
 
       .link-list a {
@@ -54,6 +55,10 @@
       }
 
       /* STARTS WITH ATTRIBUTE SELECTOR */
+
+      .link-list a[href^="http"] {
+        color: red;
+      }
 
       /* COMBINING WITH PSEUDO-CLASSES */
 
@@ -76,7 +81,15 @@
         margin: 0 auto 0.5rem;
       }
 
+      img:not([alt]) {
+        border: 3px solid red;
+      }
+
       /* DATA ATTRIBUTE SELECTORS */
+
+      [data-category="starter"] {
+        background-color: yellow;
+      }
     </style>
   </head>
   <body>
