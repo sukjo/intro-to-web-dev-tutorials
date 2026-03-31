@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Listening Demo</title>
+    <style>
+      .node {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 5rem;
+        margin-bottom: 1rem;
+        opacity: 0;
+        transition: opacity ease-in 0.5s;
+      }
+      input[type="range"] {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wwi" class="node">WWI</div>
+    <div id="wwii" class="node">WWII</div>
+    <div id="vietnam" class="node">Vietnam War</div>
+    <div id="korea" class="node">Korean War</div>
+
+    <input type="range" id="timeline" min="1910" max="1980" value="1900" />
+
+    <script></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poems</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .poem__container {
+        flex: 0 1 200px;
+        min-height: 175px;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: 15px;
+        border: 1px solid lightsteelblue;
+      }
+      .poem__year {
+        font-weight: bold;
+        margin-right: 1ch;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const poems = [
+        {
+          author: "Gabriela Mistral",
+          year: "1925",
+          title: "Ecstasy",
+          language: "Spanish",
+        },
+        {
+          author: "Maya Angelou",
+          year: "1978",
+          title: "Still I Rise",
+          language: "English",
+        },
+        {
+          author: "Audre Lorde",
+          year: "1978",
+          title: "A Woman Speaks",
+          language: "English",
+        },
+        {
+          author: "Li-Young Lee",
+          year: "1986",
+          title: "Persimmons",
+          language: "English",
+        },
+        {
+          author: "Forugh Farrokhzad",
+          year: "1964",
+          title: "I Pity the Garden",
+          language: "Persian",
+        },
+        {
+          author: "Joy Harjo",
+          year: "2019",
+          title: "How to Write a Poem in a Time of War",
+          language: "English",
+        },
+      ];
+    </script>
+  </body>
+</html>

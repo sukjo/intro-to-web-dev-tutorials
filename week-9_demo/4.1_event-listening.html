@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Listening Demo</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        max-width: 350px;
+        gap: 1ch;
+      }
+
+      label {
+        display: flex;
+        flex-direction: row;
+        gap: 1ch;
+      }
+
+      input[type="text"] {
+        flex: 1 1 auto;
+      }
+
+      button {
+        max-width: fit-content;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label>
+        Name:
+        <input name="name" type="text" />
+      </label>
+      <label>
+        Message:
+        <input name="message" type="text" />
+      </label>
+      <button id="submit">Submit</button>
+    </form>
+
+    <script></script>
+  </body>
+</html>
