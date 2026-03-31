@@ -280,7 +280,7 @@ console.log(townName.split(""));
 
 ```javascript
 console.log(Math.floor(Math.random() * 3));
-// returns a random number between 0 and 2
+// returns a random number between 0 and 3
 ```
 
 You can then use this to, say, pull a random value out of an array:
