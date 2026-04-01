@@ -27,8 +27,47 @@
     <div id="vietnam" class="node">Vietnam War</div>
     <div id="korea" class="node">Korean War</div>
 
-    <input type="range" id="timeline" min="1910" max="1980" value="1900" />
+    <input type="range" id="timeline" min="1910" max="1980" value="1950" />
 
-    <script></script>
+    <script>
+      const slider = document.getElementById("timeline");
+
+      const wwi = document.getElementById("wwi");
+      const wwii = document.getElementById("wwii");
+      const vietnam = document.getElementById("vietnam");
+      const korea = document.getElementById("korea");
+
+      slider.addEventListener("input", function () {
+        let year = slider.value;
+
+        // WWI
+        if (year >= 1914 && year <= 1918) {
+          wwi.style.opacity = "1";
+        } else {
+          wwi.style.opacity = "0";
+        }
+
+        // WWII
+        if (year >= 1939 && year <= 1945) {
+          wwii.style.opacity = "1";
+        } else {
+          wwii.style.opacity = "0";
+        }
+
+        // Korean War
+        if (year >= 1950 && year <= 1953) {
+          korea.style.opacity = "1";
+        } else {
+          korea.style.opacity = "0";
+        }
+
+        // Vietnam War
+        if (year >= 1955 && year <= 1975) {
+          vietnam.style.opacity = "1";
+        } else {
+          vietnam.style.opacity = "0";
+        }
+      });
+    </script>
   </body>
 </html>

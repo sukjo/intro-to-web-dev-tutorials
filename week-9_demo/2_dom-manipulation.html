@@ -39,6 +39,14 @@
       </p>
       <p>Source: Treating Code As an Essay, Yukihiro Matsumoto</p>
     </main>
-    <script></script>
+    <script>
+      const question = document.getElementById("question");
+      console.log(question);
+      question.textContent =
+        "Are computer programs actually supposed to be the ones reading human outputs?";
+      question.style.color = "red";
+      question.append(" Let's begin by considering...");
+      question.innerHTML = "<strong>bolded element</strong>";
+    </script>
   </body>
 </html>

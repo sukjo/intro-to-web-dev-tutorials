@@ -19,6 +19,24 @@
       as it is connected to what we are in the flesh.
     </p>
     <p>Jesse Stommel</p>
-    <script></script>
+    <script>
+      function changeColor() {
+        const body = document.querySelector("body");
+        console.log(body.style.backgroundColor);
+
+        if (
+          body.style.backgroundColor === "blue" ||
+          body.style.backgroundColor === "red"
+        ) {
+          body.style.color = "white";
+        } else if (body.style.backgroundColor === "turquoise") {
+          body.style.color = "teal";
+        } else {
+          body.style.color = "tomato";
+        }
+      }
+
+      changeColor();
+    </script>
   </body>
 </html>

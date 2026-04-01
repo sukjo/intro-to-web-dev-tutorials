@@ -65,6 +65,38 @@
           language: "English",
         },
       ];
+
+      function createPoemCard(poem) {
+        const container = document.createElement("div");
+        // adding a class to the poem container
+        container.classList.add("poem__container");
+
+        const title = document.createElement("h3");
+        title.textContent = poem.title;
+        container.appendChild(title);
+
+        const author = document.createElement("h4");
+        author.textContent = poem.author;
+        container.appendChild(author);
+
+        const year = document.createElement("span");
+        year.textContent = poem.year;
+        container.appendChild(year);
+
+        if (poem.language === "Spanish") {
+          container.style.backgroundColor = "lightblue";
+        } else if (poem.language === "Persian") {
+          container.style.backgroundColor = "lightgreen";
+        } else {
+          container.style.backgroundColor = "tan";
+        }
+
+        document.body.appendChild(container);
+      }
+
+      poems.forEach(function (poem) {
+        createPoemCard(poem);
+      });
     </script>
   </body>
 </html>

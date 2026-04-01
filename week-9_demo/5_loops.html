@@ -36,6 +36,37 @@
           alt: "Storage jar decorated with mountain goats, Ceramic, paint",
         },
       ];
+
+      const container = document.querySelector("#artifacts");
+
+      artifacts.forEach(function (item) {
+        container.innerHTML += `
+          <div class="card">
+            <img src="${item.url}" alt="${item.alt}"/>
+            <h3>${item.title}</h3>
+            </div>
+        `;
+      });
+
+      // let item = artifacts[0];
+
+      // container.innerHTML += `
+      //     <div class="card">
+      //       <img src="${item.url}" alt="${item.alt}"/>
+      //       <h3>${item.title}</h3>
+      //       </div>
+      //   `;
+
+      // for (let i = 0; i < artifacts.length; i++) {
+      //   let item = artifacts[i];
+
+      //   container.innerHTML += `
+      //     <div class="card">
+      //       <img src="${item.url}" alt="${item.alt}"/>
+      //       <h3>${item.title}</h3>
+      //       </div>
+      //   `;
+      // }
     </script>
   </body>
 </html>
