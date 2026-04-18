@@ -9,7 +9,7 @@ Before we begin, note that in order for the opensheet API to work, your Google S
 To start, create or locate a Google Spreadsheet and set the sharing permissions to "anyone with the link can view". For this example, we'll use this [template](https://docs.google.com/spreadsheets/d/1seml7EpmC5s0zlXxEF_viGl8zYniSReNp4olegODom8/edit?usp=sharing). Copy the link and paste it into your JS file. Erase every part of the link aside from the string of characters between `/d/` and `/edit?`. This is your spreadsheet's unique ID.
 
 ```markdown
-https://docs.google.com/spreadsheets/d/**1seml7EpmC5s0zlXxEF_viGl8zYniSReNp4olegODom8**/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1seml7EpmC5s0zlXxEF_viGl8zYniSReNp4olegODom8/edit?usp=sharing
 ```
 
 Store the ID in a variable, as well as a tab index. The tab index keeps track of which tab within your spreadsheet you are calling. For this API, tab indexes start at `1`.
