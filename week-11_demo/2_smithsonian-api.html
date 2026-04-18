@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smithsonian API demo</title>
+    <style>
+      article {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 400px;
+      }
+      h2 {
+        color: #8b4513;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      const API_key = "X5eFIKdSzRRDKR6nU8UE0STuol7PjfGLLdKuiokh";
+      const query = "cats&dogs";
+      const rows = 5;
+      const sort = "relevancy";
+
+      async function getData() {
+        const response = await fetch(`
+        https://api.si.edu/openaccess/api/v1.0/search?q=${query}&api_key=${API_key}&rows=${rows}&sort=${sort}`);
+        const data = await response.json();
+
+        console.log(data);
+
+        data.response.rows.forEach((row) => {
+          console.log(row);
+          renderArtifact(row);
+        });
+      }
+
+      function renderArtifact(row) {
+        const container = document.querySelector("#container");
+
+        const title = row.title;
+
+        let date = "Date not specified";
+        let language = "Language not specified";
+        let name = "Author not found";
+        let place = "Origin not specified";
+
+        if (
+          row.content.indexedStructured.date &&
+          row.content.indexedStructured.date[0].length > 0
+        ) {
+          date = row.content.indexedStructured.date[0];
+        }
+
+        if (
+          row.content.indexedStructured.language &&
+          row.content.indexedStructured.language[0].length > 0
+        ) {
+          language = row.content.indexedStructured.language[0];
+        }
+
+        if (
+          row.content.indexedStructured.name &&
+          row.content.indexedStructured.name[0].length > 0
+        ) {
+          name = row.content.indexedStructured.name[0];
+        }
+
+        if (
+          row.content.indexedStructured.place &&
+          row.content.indexedStructured.place[0].length > 0
+        ) {
+          place = row.content.indexedStructured.place[0];
+        }
+
+        const link = row.content.descriptiveNonRepeating.record_link;
+
+        container.innerHTML += `
+        <article>
+            <h2>${title}</h2>
+            <p><strong>Date:</strong> ${date}</p>
+            <p><strong>Origin:</strong> ${place}</p>
+            <p><strong>Owner:</strong> ${name}</p>
+            <hr>
+            <p><em>Language:</em> ${language}</p>
+            <a href="${link}" target="_blank">View in Smithsonian Collection</a>
+        </article>
+    `;
+      }
+
+      getData();
+    </script>
+  </body>
+</html>

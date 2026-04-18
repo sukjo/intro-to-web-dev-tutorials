@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>opensheet API demo</title>
+    <style>
+      img {
+        max-width: 500px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Wildflowers of Wikimedia</h1>
+    <div id="container"></div>
+    <script>
+      // link to the spreadsheet:
+      // https://docs.google.com/spreadsheets/d/1seml7EpmC5s0zlXxEF_viGl8zYniSReNp4olegODom8/edit?usp=sharing
+
+      const sheetID = "1seml7EpmC5s0zlXxEF_viGl8zYniSReNp4olegODom8";
+      const tabIndex = "1";
+
+      const container = document.getElementById("container");
+
+      async function fetchData() {
+        const response = await fetch(
+          `https://opensheet.elk.sh/${sheetID}/${tabIndex}`,
+        );
+
+        // this if/else block below is a standard error-catching technique for async functions
+        // similar to fetch().then().then().catch(error)
+        if (!response.ok) {
+          throw new Error(`HTTP error: ${response.status}`);
+          // if the response does not send a success message, "throw" an error
+        } else {
+          const data = await response.json(); // parse the data
+          return data;
+        }
+      }
+
+      function renderData(data) {
+        data.forEach((row) => {
+          const title = document.createElement("h2");
+          title.textContent = row.Title;
+          container.appendChild(title);
+
+          const img = document.createElement("img");
+          img.setAttribute("src", row.Image_URL);
+          img.setAttribute("alt", row.Alt_Text);
+          container.appendChild(img);
+        });
+      }
+
+      async function initializeData() {
+        const parsedData = await fetchData();
+        console.log(parsedData);
+        renderData(parsedData);
+      }
+
+      initializeData();
+    </script>
+  </body>
+</html>
