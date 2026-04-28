@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaflet Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+    />
+    <!-- make sure you put the Leaflet JS scripts AFTER the CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="script.js" defer></script>
+    <!-- the "defer" above means the script will execute after the DOM is ready -->
+    <!-- otherwise the browser has to wait for the script to download and execute the downloaded script, before processing the rest of the page -->
+    <!-- "defer" is necessary here only because we're putting the <script> in the <head> instead of the <body> -->
+  </head>
+  <body>
+    <h1>Known Revolts by Captured Africans</h1>
+    <h2>During Voyages to Cuba in the Transatlantic Slave Trade</h2>
+    <div id="map"></div>
+    <nav>
+      <label>Explore by voyage:</label>
+      <button id="back-btn">previous</button>
+      <button id="fwd-btn">next</button>
+    </nav>
+  </body>
+</html>

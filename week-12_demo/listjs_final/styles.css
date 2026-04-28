@@ -1,0 +1,58 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  background-color: snow;
+}
+
+menu,
+#genre-filters,
+#sort-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0.5rem;
+  gap: 2rem;
+}
+
+menu {
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.fuzzy-search,
+.search {
+  height: 1rem;
+  margin: 0.5rem;
+}
+
+#genre-filters {
+  gap: 1rem;
+}
+
+.list {
+  font-family: monospace;
+  font-size: 0.9rem;
+  line-height: 1.1rem;
+}
+
+li {
+  margin: 1rem 0;
+}
+
+li > * {
+  margin: 0;
+}
+
+.title {
+  font-style: italic;
+}
+
+.genre {
+  display: block;
+  font-size: 0.7rem;
+  color: white;
+  background-color: mediumseagreen;
+  width: fit-content;
+  margin-top: 0.5ch;
+  padding: 0.3rem;
+}
